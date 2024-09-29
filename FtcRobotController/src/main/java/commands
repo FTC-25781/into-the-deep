@@ -1,0 +1,27 @@
+package org.firstinspires.ftc.teamcode.subsystems;
+
+import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.HardwareMap;
+
+public class DrivetrainSubsystem {
+    private DcMotor leftMotor;
+    private DcMotor rightMotor;
+
+    // Constructor that initializes the motors
+    public DrivetrainSubsystem(HardwareMap hardwareMap) {
+        leftMotor = hardwareMap.get(DcMotor.class, "leftMotor");
+        rightMotor = hardwareMap.get(DcMotor.class, "rightMotor");
+        rightMotor.setDirection(DcMotor.Direction.REVERSE); // Reverse one motor so they drive in sync
+    }
+
+    // Set the power for both the left and right motors
+    public void setPower(double leftPower, double rightPower) {
+        leftMotor.setPower(leftPower);
+        rightMotor.setPower(rightPower);
+    }
+
+    // Stop both motors
+    public void stop() {
+        setPower(0, 0);
+    }
+}
