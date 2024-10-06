@@ -305,7 +305,7 @@ public class GoBildaPinpointDriver extends I2cDeviceSynchDevice<I2cDeviceSynch> 
      * You can find this number by dividing the counts-per-revolution of your encoder by the circumference of the wheel.
      * @param ticks_per_mm should be somewhere between 10 ticks/mm and 100 ticks/mm a goBILDA Swingarm pod is ~13.26291192
      */
-    public void setEncoderResolution(double ticks_per_mm){
+    public void f(double ticks_per_mm){
         writeByteArray(Register.MM_PER_TICK,(floatToByteArray((float) ticks_per_mm,ByteOrder.LITTLE_ENDIAN)));
     }
 
